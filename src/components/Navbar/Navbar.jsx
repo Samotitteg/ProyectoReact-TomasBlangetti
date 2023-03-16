@@ -1,9 +1,11 @@
 import React from 'react'
 import caduceo from '../Imagenes/caduceo.png'
 import login from '../Imagenes/login.png'
-import carrito from '../Imagenes/carrito.png'
 import help from '../Imagenes/help.jpg'
 import './Navbar.css'
+import Cartwidget from '../Cartwidget'
+
+
 
 const Navbar = () => {
   return (
@@ -28,7 +30,7 @@ const Navbar = () => {
                 <a href="#"><img src={help} className='logoFarm' alt="AYUDA"/></a>
             </div>
             <div>
-                <a href="#"><img src={carrito} className='logoFarm' alt="CARRITO"/></a>
+                <Cartwidget/>
             </div>
         </div>
     </nav>
