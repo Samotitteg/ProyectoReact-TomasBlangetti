@@ -3,7 +3,9 @@ import caduceo from '../Imagenes/caduceo.png'
 import login from '../Imagenes/login.png'
 import help from '../Imagenes/help.jpg'
 import './Navbar.css'
-import Cartwidget from '../Cartwidget'
+
+import { Link } from 'react-router-dom'
+import carrito from '../Imagenes/carrito.png'
 
 
 
@@ -17,20 +19,20 @@ const Navbar = () => {
             </button>
             <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
                 <div class="navbar-nav">
-                    <a class="nav-link active" aria-current="page" href="#">INICIO</a>
-                    <a class="nav-link" href="#">NOSOTROS</a>
-                    <a class="nav-link" href="#">TIENDA</a>
-                    <a class="nav-link" href="#">CONTACTO</a>
+                    <Link to={'/'}>INICIO</Link>                    
+                    <Link to={'/nosotros'}>NOSOTROS</Link>                    
+                    <Link to={'/tienda'}>TIENDA</Link>                    
+                    <Link to={'/contacto'}>CONTACTO</Link>                   
                 </div>
             </div>
             <div>
-                <a href="#"><img src={login} className='logoFarm' alt="LOGIN"/></a>
+             <Link to={'/login'}><img src={login} className='logoFarm' alt="LOGIN"/></Link>
             </div>
             <div>
-                <a href="#"><img src={help} className='logoFarm' alt="AYUDA"/></a>
+                <Link to={'/contacto'}><img src={help} className='logoFarm' alt="AYUDA"/></Link>
             </div>
             <div>
-                <Cartwidget/>
+                <Link to={'/carrito'}><img src={carrito} className='logoFarm2' alt="CARRITO"/></Link>
             </div>
         </div>
     </nav>

@@ -1,15 +1,38 @@
 import React from 'react';
 import ReactDOM from 'react-dom/client';
 import './index.css';
-import App from './App';
 import reportWebVitals from './reportWebVitals';
-import Navbar from './components/Navbar/Navbar';
 import MyPage from './components/Navbar/MyPage';
+import { BrowserRouter, Routes, Route } from 'react-router-dom'
+import Contacto from './components/Contacto/Contacto';
+import Nosotros from './components/Nosotros/Nosotros';
+import Tienda from './components/Tienda/Tienda';
+import Cartwidget from './components/Cartwidget';
+import Login from './components/Login/Login';
+import Contexto from './components/Contexto/Contexto';
+
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
   <React.StrictMode>
-    <MyPage />
+    <Contexto>
+    <BrowserRouter>
+      <Routes>
+        
+        <Route exact path='/' element={<MyPage />}/>
+        <Route exact path='/nosotros' element={<Nosotros />}/>
+        <Route exact path='/tienda' element={<Tienda />}/>
+        <Route exact path='/contacto' element={<Contacto />}/>
+        <Route exact path='/carrito' element={<Cartwidget />}/>
+        <Route exact path='/login' element={<Login />}/>
+        <Route exact path='/carrito' element={<Cartwidget />}/>
+
+
+
+
+      </Routes>
+    </BrowserRouter>
+    </Contexto>
   </React.StrictMode>
 );
 
