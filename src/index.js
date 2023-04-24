@@ -10,6 +10,7 @@ import Tienda from './components/Tienda/Tienda';
 import Cartwidget from './components/Cartwidget';
 import Login from './components/Login/Login';
 import ContextoProvider from './components/Contexto/Contexto';
+import Detalle from './components/Detalle';
 
 
 
@@ -26,6 +27,7 @@ root.render(
         <Route exact path='/contacto' element={<Contacto />}/>
         <Route exact path='/carrito' element={<Cartwidget />}/>
         <Route exact path='/login' element={<Login />}/>
+        <Route exact path="/item/:itemId" element={<Detalle />} />
         
 
       </Routes>

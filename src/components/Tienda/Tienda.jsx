@@ -4,7 +4,7 @@ import { Link } from 'react-router-dom';
 import { Contexto } from '../Contexto/Contexto';
 import Navbar from '../Navbar/Navbar';
 import ItemListConteiner from '../ItemListConteiner';
-
+import eliminar from '../Imagenes/eliminar.jpg'
 const Tienda = () => {
   const { Agregar, Quitar } = useContext(Contexto);
 
@@ -53,33 +53,18 @@ const Tienda = () => {
     <div>
       <div className='tienda1'>
         {products.map((item) => (
-          <div key={item.id} style={{ 
-            width: '300px', 
-            height: '300px', 
-            border: '1px solid grey', 
-            padding: '10px',
-            display: 'flex', 
-            flexDirection: 'column', 
-            justifyContent: 'center', 
-            }}>
+          <div key={item.id} className='tarjeta'>
 
-            <h3 style={{ textAlign: 'center' }}>{item.nombre}</h3>
-            <p style={{ textAlign: 'center' }}>{item.detalle}</p>
-            <p style={{ textAlign: 'center' }}>Precio: ${item.precio}</p>
-            <Link style={{ textAlign: 'center' }} to={`/item/${item.id}`}>Ver detalle</Link>
+            <h3 className='u'>{item.nombre}</h3>
+            <p className='u'>{item.detalle}</p>
+            <p className='u'>Precio: ${item.precio}</p>
+            <Link className='u2' to={`/item/${item.id}`}>Ver detalle</Link>
 
-            <div style={{ display: 'flex', alignItems: 'center' }}>
-                <button style={{ background: '#007bff', color: '#fff', border: 'none', padding: '0.5rem 1rem', marginRight: '1rem' }} onClick={() => Agregar(item, 1)}>
+            <div className='botones'>
+                <button className='add' onClick={() => Agregar(item, 1)}>
                     Agregar al carrito
                 </button>
-                <button style={{
-                    backgroundColor: 'red',
-                    color: 'white',
-                    border: 'none',
-                    borderRadius: '50%',
-                    width: '25px',
-                    height: '25px'
-                }} onClick={() => Quitar(item.id)}>X</button>
+                <button onClick={() => Quitar(item.id)}><img src={eliminar} className='elim'/></button>
             </div>
           </div> 
         ))}
