@@ -1,6 +1,7 @@
 import React from 'react'
 import Navbar from '../Navbar/Navbar'
 import caduceo from '../Imagenes/caduceo.png'
+import ItemListConteiner from '../ItemListConteiner'
 
 const Nosotros = () => {
   return (
@@ -9,7 +10,7 @@ const Nosotros = () => {
     <div className='saludo'>
         
 
-        <p className='saludoP'> Nosotros </p>
+        <ItemListConteiner saludo="NOSOTROS"/>
        
 
         <img src={caduceo} className='logoFarm' alt='caduceo'/>

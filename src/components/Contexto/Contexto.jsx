@@ -1,26 +1,62 @@
-import React, { createContext, useEffect, useState } from 'react'
+import React, { useState, createContext } from "react";
 
+export const Contexto = createContext({
+  carro: [],
+  Vaciar: () => {},
+  Existencia: () => {},
+  Agregar: () => {},
+  Quitar: () => {},
+  CantidadTotal: () => {},
+  Total: () => {}
+});
 
-export const Datos = createContext()
+const ContextoProvider = (props) => {
 
-const Contexto = ({children}) => {
+  const [carro, setcarro] = useState([]);
 
-    const [product, setproduct] = useState([])
+  const Vaciar = () => {
+    setcarro([]);
+  }
 
-    useEffect(() => {
-     fetch('productos.json')
-     .then((res) => setproduct(res.product))
-    
-      
-    }, [])
-    
+  const Existencia = (id) => {
+    return carro.find((item) => item.id === id) ? true : false;
+  }
 
+  const Agregar = (item, cantidad) => {
+    if (Existencia(item.id)) {
+      setcarro(carro.map((carroItem) => {
+        if (carroItem.id === item.id) {
+          return { ...carroItem, cantidad: carroItem.cantidad + cantidad };
+        }
+        return carroItem;
+      }));
+    } else {
+      setcarro([...carro, { ...item, cantidad }]);
+    }
+  };
+  
+  const Quitar = (id) => {
+    const newcarro = carro.filter((item) => item.id !== id)
+    setcarro(newcarro);
+  };
+
+  const CantidadTotal = () => {
+    let cant = 0
+    carro.forEach((e) => cant += e.cantidad)
+    return cant
+  };
+
+  const Total = () => {
+    let total = 0
+    carro.forEach((e) => total += (e.cantidad*e.precio))
+    return total        
+  };
 
   return (
-    <Datos.Provider value={{product}}>
-        {children}
-    </Datos.Provider>
-  )
-}
+    <Contexto.Provider value={{ carro, Vaciar, Agregar, Quitar, CantidadTotal, Total }}>
+      {props.children}
+    </Contexto.Provider>
+  );
+};
 
-export default Contexto
+export default ContextoProvider;

@@ -9,13 +9,14 @@ import Nosotros from './components/Nosotros/Nosotros';
 import Tienda from './components/Tienda/Tienda';
 import Cartwidget from './components/Cartwidget';
 import Login from './components/Login/Login';
-import Contexto from './components/Contexto/Contexto';
+import ContextoProvider from './components/Contexto/Contexto';
+
 
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
   <React.StrictMode>
-    <Contexto>
+    <ContextoProvider>
     <BrowserRouter>
       <Routes>
         
@@ -25,14 +26,11 @@ root.render(
         <Route exact path='/contacto' element={<Contacto />}/>
         <Route exact path='/carrito' element={<Cartwidget />}/>
         <Route exact path='/login' element={<Login />}/>
-        <Route exact path='/carrito' element={<Cartwidget />}/>
-
-
-
+        
 
       </Routes>
     </BrowserRouter>
-    </Contexto>
+    </ContextoProvider>
   </React.StrictMode>
 );
 
