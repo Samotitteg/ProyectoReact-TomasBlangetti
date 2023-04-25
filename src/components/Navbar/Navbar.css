@@ -64,15 +64,17 @@ a {
     color: red;
 }
 .tienda1 {
-    display: flex;
-    justify-content: center;
-    padding: 50px; 
-    gap: 20px;
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    grid-gap: 10px;
+    grid-auto-rows: minmax(100px, auto);
+    justify-items: center;
+    margin-top: 10px;
 }
 .tarjeta {
     
     width: 300px; 
-    height: 300px;
+    height: 400px;
     border: 1px solid grey;
     border-radius: 10%;
     padding: 10px;
@@ -88,25 +90,34 @@ a {
     text-align: center;
     color: blue;
 }
+.u3 {
+    text-align: center;
+    
+    width: 7rem;
+    height: 7rem;
+}
 .botones {
-    display: flex;
-    align-items: center;
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    padding-top: 20px;
 }
 .add{
-    background-color: rgb(9, 114, 114);
+    background-color: rgb(93, 188, 188);
     color: black;
     border: none;
-    padding: 0.5rem 1rem;
+    border-radius: 10%;
+    padding: 0.4rem 0.7rem;
     margin-right: 1rem;
+    box-shadow: 5px;
 }
 .elim {
     
     background-color: red;
     color: white;
-    border: none;
-    border-radius: 20%;
+    border: none;    
     width: 25px;
     height: 25px;
-    
+    box-shadow: 5px;
+     
 }
 

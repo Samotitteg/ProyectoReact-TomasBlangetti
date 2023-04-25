@@ -11,6 +11,19 @@ import Cartwidget from './components/Cartwidget';
 import Login from './components/Login/Login';
 import ContextoProvider from './components/Contexto/Contexto';
 import Detalle from './components/Detalle';
+import { initializeApp } from "firebase/app";
+
+const firebaseConfig = {
+  apiKey: "AIzaSyBkkHgSRMv7LGhDWTvdv4SZRphRrOVtTsw",
+  authDomain: "farma-shop.firebaseapp.com",
+  projectId: "farma-shop",
+  storageBucket: "farma-shop.appspot.com",
+  messagingSenderId: "310610365902",
+  appId: "1:310610365902:web:73f3abc2f71ec58f542f9f"
+};
+
+
+initializeApp(firebaseConfig);
 
 
 
@@ -35,6 +48,7 @@ root.render(
     </ContextoProvider>
   </React.StrictMode>
 );
+
 
 // If you want to start measuring performance in your app, pass a function
 // to log results (for example: reportWebVitals(console.log))
