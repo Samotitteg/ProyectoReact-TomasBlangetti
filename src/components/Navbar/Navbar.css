@@ -73,14 +73,28 @@ a {
 }
 .tarjeta {
     
-    width: 300px; 
-    height: 400px;
+    width: 250px; 
+    height: 350px;
     border: 1px solid grey;
     border-radius: 10%;
     padding: 10px;
     display: flex;
     flex-direction: column;
     justify-content: center;
+    box-shadow: 0px 5px 20px rgb(0, 0, 0);
+        
+}
+.tarjeta2 {
+    
+    width: 700px; 
+    height: 80px;
+    border: 1px solid grey;
+    margin-top: 20px;
+    padding: 10px;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    box-shadow: 0px 5px 20px rgb(0, 0, 0);
         
 }
 .u {
@@ -89,6 +103,8 @@ a {
 .u2 {
     text-align: center;
     color: blue;
+    background-color: rgb(190, 221, 248);
+    
 }
 .u3 {
     text-align: center;
@@ -96,16 +112,46 @@ a {
     width: 7rem;
     height: 7rem;
 }
+.u4 {
+    text-align: center;
+    
+    width: 4rem;
+    height: 4rem;
+}
+.u5 {
+    text-align: center;
+    color: blue;
+    background-color: rgb(190, 221, 248);
+    
+}
+.u6 {
+    text-align: right;
+    padding-right: 400px;
+    margin-top: 50px;
+    color: rgb(4, 4, 52);
+    font-size: large;
+    font-weight: bold;
+    background-color: rgb(240, 184, 184);
+    
+}
+.u7 {
+    text-align: right;
+    padding-right: 400px;
+    margin-top: 50px;
+    
+}
+
 .botones {
     display: grid;
     grid-template-columns: repeat(2, 1fr);
-    padding-top: 20px;
+    margin-top: 5px;
+   
 }
 .add{
     background-color: rgb(93, 188, 188);
     color: black;
     border: none;
-    border-radius: 10%;
+    
     padding: 0.4rem 0.7rem;
     margin-right: 1rem;
     box-shadow: 5px;

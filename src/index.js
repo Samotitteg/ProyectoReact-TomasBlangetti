@@ -13,6 +13,7 @@ import ContextoProvider from './components/Contexto/Contexto';
 import Detalle from './components/Detalle';
 import { initializeApp } from "firebase/app";
 
+
 const firebaseConfig = {
   apiKey: "AIzaSyBkkHgSRMv7LGhDWTvdv4SZRphRrOVtTsw",
   authDomain: "farma-shop.firebaseapp.com",
@@ -40,7 +41,7 @@ root.render(
         <Route exact path='/contacto' element={<Contacto />}/>
         <Route exact path='/carrito' element={<Cartwidget />}/>
         <Route exact path='/login' element={<Login />}/>
-        <Route exact path="/item/:itemId" element={<Detalle />} />
+        <Route exact path="/nombre/:itemId" element={<Detalle />} />
         
 
       </Routes>

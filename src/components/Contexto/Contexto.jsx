@@ -4,15 +4,17 @@ export const Contexto = createContext({
   carro: [],
   Vaciar: () => {},
   Existencia: () => {},
+  Existencia2: () => {},
   Agregar: () => {},
   Quitar: () => {},
   CantidadTotal: () => {},
-  Total: () => {}
-});
+  Total: () => {},
+ });
 
 const ContextoProvider = (props) => {
 
   const [carro, setcarro] = useState([]);
+  const [mostrar, setmostrar] = useState([])
 
   const Vaciar = () => {
     setcarro([]);
@@ -21,6 +23,10 @@ const ContextoProvider = (props) => {
   const Existencia = (id) => {
     return carro.find((item) => item.id === id) ? true : false;
   }
+  const Existencia2 = (id) => {
+    const existe = mostrar.filter((item) => item.id === id)
+    setmostrar(existe);
+  };
 
   const Agregar = (item, cantidad) => {
     if (Existencia(item.id)) {
@@ -39,6 +45,7 @@ const ContextoProvider = (props) => {
     const newcarro = carro.filter((item) => item.id !== id)
     setcarro(newcarro);
   };
+    
 
   const CantidadTotal = () => {
     let cant = 0
@@ -53,7 +60,7 @@ const ContextoProvider = (props) => {
   };
 
   return (
-    <Contexto.Provider value={{ carro, Vaciar, Agregar, Quitar, CantidadTotal, Total }}>
+    <Contexto.Provider value={{ carro, Vaciar, Agregar, Quitar, CantidadTotal, Total, Existencia2 }}>
       {props.children}
     </Contexto.Provider>
   );

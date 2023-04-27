@@ -1,37 +1,69 @@
-import React, { useContext} from 'react';
+import React, { useContext, useEffect, useState } from 'react';
 import { useParams } from 'react-router';
 import { Contexto } from './Contexto/Contexto';
 import eliminar from './Imagenes/eliminar.jpg'
 import Navbar from './Navbar/Navbar';
+
+import { Link } from 'react-router-dom';
 import ItemListConteiner from './ItemListConteiner';
 
 
 
-const Detalle = ({itempas}) => {
 
-  const { itemId } = useParams()
+const Detalle = () => {
 
-  const { Agregar, Quitar } = useContext(Contexto)
+  const {itemId} =useParams()
 
+  const { mostrar, Total, CantidadTotal, Vaciar } = useContext(Contexto)
   
 
-  const Selecionar = itempas.find(item => item.id==itemId)
-
-
   return (
-    <>
-    <Navbar/>
-    <ItemListConteiner saludo='PRODUCTOS'/>
-    <div style={{  justifyContent: 'center', padding: '50px', gap: '20px' }}>
-    
-      <h2>{Selecionar.nombre}</h2>
-      <p>Precio: {Selecionar.precio}</p>
-      <p>Detalle: {Selecionar.detalle}</p>
-      <button className='add' onClick={() => Agregar(Selecionar, 1)}>Agregar al carrito</button>
-      <button onClick={() => Quitar(Selecionar.id)}><img src={eliminar} className='elim'/></button>
-    </div>
-    </>
-  );
+    <div>
+        <>
+        <Navbar/>
+        <ItemListConteiner saludo="CARRITO DE COMPRAS"/>
+        <div>
+        {mostrar.length > 0 && (
+                
+                <div>
+                  <ul>
+                    {mostrar.map((itemId) => (
+                    <div>
+                      <div key={itemId.id} className='tarjeta2'>
+                        <div >
+                        <img className='u4' src={itemId.imagen}/>
+                        </div>
+                        <div className='u'>
+                        <h3>{itemId.nombre}</h3>
+                        </div>
+                        <div className='u'>
+                        <p>{itemId.detalle}</p>
+                        </div>
+                        <div className='u'>
+                        <p>Precio: ${itemId.precio}</p>
+                        </div>
+                        <div className='u'>
+                        <span><u>Cantidad:</u> {itemId.cantidad} </span>
+                        </div>
+                        <div className='u5'>
+                        <span><u>Total producto:</u>  $  {itemId.cantidad*itemId.precio} </span>
+                        </div>
+                        
+
+                      </div>
+                      
+                    </div>
+                      
+                    ))}
+                  </ul>
+                  </div>  
+                  
+                 ) }
+        </div>
+        </>
+        
+    </div> 
+  )
 }
 
 export default Detalle

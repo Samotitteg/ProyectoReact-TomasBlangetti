@@ -3,15 +3,19 @@ import React, { useContext, useEffect, useState } from 'react';
 import { Link } from 'react-router-dom';
 import { Contexto } from '../Contexto/Contexto';
 import Navbar from '../Navbar/Navbar';
-import ItemListConteiner from '../ItemListConteiner';
+
 import eliminar from '../Imagenes/eliminar.jpg';
 
 import {getDocs, getFirestore, collection} from 'firebase/firestore'
+import ItemListConteiner from '../ItemListConteiner';
+
+
+
 
 
 
 const Tienda = () => {
-  const { Agregar, Quitar } = useContext(Contexto);
+  const { Agregar, Quitar, Existencia2} = useContext(Contexto);
 
   const [Items, setItems] = useState([])
 
@@ -27,15 +31,20 @@ const Tienda = () => {
     
     })
     
+    
 
   }, [])
- 
 
+  
+  
+  
   return (
     <>
-    
+   
     <Navbar/>
     <ItemListConteiner saludo="TIENDA"/>
+   
+    
     <div>
       <div className='tienda1'>
         { Items.map((item) => (
@@ -48,7 +57,7 @@ const Tienda = () => {
             <p>{item.detalle}</p>
             <p>Precio: ${item.precio}</p>
             </div>
-            <Link className='u2' to={`/item/${item.id}`}>Ver detalle</Link>
+            <Link className='u2' to={`/${item.nombre}/${item.id}`}><button type="button" className='u5' onClick={() => Existencia2(item)}>VER DETALLE</button></Link>
 
             <div className='botones'>
                 <button className='add' onClick={() => Agregar(item, 1)}>
